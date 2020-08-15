@@ -1,0 +1,146 @@
+{
+  "name": "node-graphQl-api",
+  "version": "1.0.0",
+  "description": "A api for node-graphQl system",
+  "main": "index.js",
+  "scripts": {
+    "start": "node -r dotenv/config ./build/index.js",
+    "dev": "cross-env NODE_ENV=development nodemon -e js,ts --exec ts-node -r dotenv/config -r tsconfig-paths/register  src/index.ts",
+    "debug": "cross-env NODE_ENV=development nodemon -e js,ts --exec ts-node -r dotenv/config -r tsconfig-paths/register --inspect --debug-brk src/index",
+    "migrate": "cross-env NODE_ENV=development sequelize-cli db:migrate",
+    "migrate:test": "cross-env NODE_ENV=test sequelize-cli db:migrate",
+    "migrate:prod": "sequelize-cli db:migrate",
+    "migration:undo": "cross-env NODE_ENV=development sequelize-cli db:migrate:undo",
+    "migration:undo:test": "cross-env NODE_ENV=test sequelize-cli db:migrate:undo",
+    "migration:undo:prod": "sequelize-cli db:migrate:undo",
+    "migration:undo:all": "cross-env NODE_ENV=development sequelize-cli db:migrate:undo:all",
+    "migration:undo:all:test": "cross-env NODE_ENV=test sequelize-cli db:migrate:undo:all",
+    "migration:undo:all:prod": "sequelize-cli db:migrate:undo:all",
+    "migration:generate": "cross-env NODE_ENV=development sequelize-cli migration:generate --name",
+    "seed": "cross-env NODE_ENV=development sequelize-cli db:seed:all",
+    "seed:test": "cross-env NODE_ENV=test sequelize-cli db:seed:all",
+    "seed:prod": "sequelize-cli db:seed:all",
+    "seed:generate": "cross-env NODE_ENV=development sequelize-cli seed:generate --name",
+    "seed:undo:all": "cross-env NODE_ENV=development sequelize-cli db:seed:undo:all",
+    "seed:undo:all:test": "cross-env NODE_ENV=test sequelize-cli db:seed:undo:all",
+    "seed:undo:all:prod": "sequelize-cli db:seed:undo:all",
+    "lint": "concurrently --kill-others-on-fail 'yarn run lint:ts' 'yarn run lint:js'",
+    "lint:ts": "tslint -c tslint.json --project tsconfig.json",
+    "lint:js": "eslint . --ext .js,.ts",
+    "fix": "yarn run fix:ts && yarn run fix:js",
+    "fix:ts": "tslint -c tslint.json --project tsconfig.json --fix",
+    "fix:js": "eslint . --ext .js,.ts --fix",
+    "test": "cross-env NODE_ENV=test jest",
+    "clean": "rm -rf build && mkdir build",
+    "build": "yarn run clean && tsc",
+    "ban": "ban -- --all",
+    "commit": "commit-wizard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rebirthtobi/evote-api.git"
+  },
+  "keywords": [
+    "node-graphQl"
+  ],
+  "author": "ttobi4@gmail.com",
+  "bugs": {
+    "url": "https://github.com/rebirthtobi/node-graphQl/issues"
+  },
+  "homepage": "https://github.com/rebirthtobi/node-graphQl#readme",
+  "dependencies": {
+    "@graphql-modules/core": "^0.7.17",
+    "@graphql-modules/di": "^0.7.17",
+    "@types/jsonwebtoken": "^8.5.0",
+    "@types/module-alias": "^2.0.0",
+    "apollo-server-express": "^2.13.1",
+    "ban-sensitive-files": "^1.9.7",
+    "class-validator": "^0.12.2",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.16.4",
+    "graphql": "^15.0.0",
+    "graphql-subscriptions": "^1.1.0",
+    "graphql-tag": "^2.10.3",
+    "helmet": "^3.16.0",
+    "http-status-codes": "^1.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "module-alias": "^2.2.2",
+    "nodemon": "^1.19.3",
+    "pg": "^7.12.1",
+    "pg-hstore": "^2.3.3",
+    "pre-git": "^3.17.1",
+    "reflect-metadata": "^0.1.13",
+    "sequelize": "^5.7.6",
+    "sequelize-cli": "^5.5.1",
+    "ts-node": "^8.10.1",
+    "ts-node-dev": "^1.0.0-pre.57",
+    "tsconfig-paths": "^3.9.0",
+    "twilio": "^3.47.0",
+    "type-graphql": "^1.0.0-rc.2"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^3.0.0",
+    "@types/bluebird": "^3.5.27",
+    "@types/compression": "^1.0.1",
+    "@types/cors": "^2.8.6",
+    "@types/express": "^4.17.1",
+    "@types/graphql": "^14.5.0",
+    "@types/helmet": "^0.0.44",
+    "@types/jest": "^25.2.3",
+    "@types/node": "^12.7.8",
+    "@types/validator": "^13.0.0",
+    "@typescript-eslint/eslint-plugin": "^2.23.0",
+    "@typescript-eslint/parser": "^2.23.0",
+    "chai": "^4.2.0",
+    "concurrently": "^5.0.0",
+    "cross-env": "^7.0.2",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-security": "^1.4.0",
+    "jest": "^26.0.1",
+    "mocha": "^5.2.0",
+    "supertest": "^4.0.2",
+    "ts-jest": "^26.1.0",
+    "tslint": "^5.20.0",
+    "tslint-config-security": "^1.16.0",
+    "typescript": "^3.6.3"
+  },
+  "eslintIgnore": [
+    "migrations"
+  ],
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "setupFiles": [
+      "dotenv/config"
+    ],
+    "moduleNameMapper": {
+      "^@shared(.*)": "<rootDir>/src/shared/$1",
+      "^@modules(.*)": "<rootDir>/src/modules/$1",
+      "^@models(.*)": "<rootDir>/src/models/$1"
+    },
+    "testEnvironment": "node"
+  },
+  "release": {
+    "analyzeCommits": "simple-commit-message"
+  },
+  "config": {
+    "pre-git": {
+      "pre-commit": ["yarn run ban"]
+    }
+  }
+}

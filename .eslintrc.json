@@ -1,0 +1,138 @@
+{
+    "env": {
+        "es2017": true,
+        "mocha": true,
+        "node": true,
+        "jest": true
+    },
+    "extends": [
+        "airbnb-base",
+        "plugin:security/recommended"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint",
+        "security"
+    ],
+    "settings": {
+        "import/resolver": {
+            "alias": {
+                "map": [
+                    ["@models", "./src/models/"],
+                    ["@modules", "./src/modules/"],
+                    ["@shared", "./src/shared/"]
+                ],
+                "extensions": [".ts", ".js", ".jsx", ".json"]
+            },
+            "node": {
+                "extensions": [
+                    ".js", ".ts"
+                ],
+                "moduleDirectory": [
+                    "node_modules", "src/"
+                ]
+            }
+        }
+    },
+    "rules": {
+        "import/extensions": [
+            "error",
+            "always",
+            {
+                "ignorePackages": true,
+                "pattern": {
+                    "js": "never",
+                    "ts": "never"
+                }
+            }
+        ],
+        "array-bracket-newline": "error",
+        "array-bracket-spacing": "error",
+        "arrow-body-style": "error",
+        "arrow-parens": ["error", "as-needed"],
+        "arrow-spacing": "error",
+        "block-scoped-var": "error",
+        "comma-dangle": ["error", "always-multiline"],
+        "comma-spacing": "error",
+        "comma-style": "error",
+        "computed-property-spacing": "error",
+        "class-methods-use-this": "off",
+        "curly": "error",
+        "default-case": "error",
+        "dot-location": ["error", "property"],
+        "dot-notation": "error",
+        "eol-last": "error",
+        "eqeqeq": "warn",
+        "func-call-spacing": "error",
+        "func-name-matching": "error",
+        "indent": ["error", 4],
+        "jsx-quotes": ["error", "prefer-double"],
+        "key-spacing": ["error", { "align": "value" }],
+        "keyword-spacing": "error",
+        "max-len": [2, 120, 4],
+        "multiline-ternary": ["error", "always-multiline"],
+        "no-bitwise": "warn",
+        "no-console": "error",
+        "no-duplicate-imports": "error",
+        "no-empty-function": "warn",
+        "no-extra-bind": "error",
+        "no-extra-semi": "error",
+        "no-floating-decimal": "error",
+        "no-lonely-if": "error",
+        "no-magic-numbers": "warn",
+        "no-mixed-operators": [
+            "error",
+            {
+                "groups": [
+                    ["&", "|", "^", "~", "<<", ">>", ">>>"],
+                    ["==", "!=", "===", "!==", ">", ">=", "<", "<="],
+                    ["&&", "||"],
+                    ["in", "instanceof"]
+                ]
+            }
+        ],
+        "no-mixed-spaces-and-tabs": "error",
+        "no-trailing-spaces": "error",
+        "no-useless-constructor": "off",
+        "no-useless-rename": "error",
+        "no-var": "error",
+        "object-curly-newline": [
+            "error",
+            { "multiline": true, "minProperties": 4 }
+        ],
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": ["error", {
+            "vars": "all",
+            "args": "none",
+            "ignoreRestSiblings": false
+        }],
+        "object-curly-spacing": ["error", "always"],
+        "one-var-declaration-per-line": "error",
+        "prefer-arrow-callback": "error",
+        "prefer-const": "error",
+        "prefer-destructuring": "error",
+        "prefer-object-spread": "error",
+        "prefer-rest-params": "error",
+        "prefer-spread": "error",
+        "prefer-template": "error",
+        "prettier/prettier": 0,
+        "quotes": ["error", "double"],
+        "react/display-name": "off",
+        "rest-spread-spacing": "error",
+        "semi-style": "error",
+        "space-in-parens": "error",
+        "space-infix-ops": "error",
+        "spaced-comment": "error",
+        "switch-colon-spacing": "error",
+        "template-tag-spacing": "error",
+        "yoda": "error"
+    }
+}

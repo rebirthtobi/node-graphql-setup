@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "allowJs": true,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "isolatedModules": true,
+        "moduleResolution": "node",
+        "strict": true,
+        "target": "es6",
+        "module": "commonjs",
+        "lib": ["es2018", "esnext.asynciterable", "dom"],
+        "emitDecoratorMetadata": true,
+        "outDir": "./build",
+        "rootDir": "./src",
+        "typeRoots": ["node_modules/@types"],
+        "strictPropertyInitialization": false,
+        "baseUrl": ".",
+        "paths": {
+            "@models/*": ["src/models/*"],
+            "@modules/*": ["src/modules/*"],
+            "@shared/*": ["src/shared/*"]
+        }
+    },
+    "include": ["./src/*"],
+    "exclude": ["node_modules/*"]
+}
